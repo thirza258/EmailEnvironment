@@ -1,12 +1,9 @@
 services:
-
   emailenv:
-
     build: .
-
     container_name: emailenv
-
     restart: unless-stopped
+
     environment:
       - NEXT_PUBLIC_GEMINI_API_KEY=${NEXT_PUBLIC_GEMINI_API_KEY}
 
@@ -16,13 +13,9 @@ services:
     networks:
       - emailenv-network
 
-
   nginx:
-
     image: nginx:alpine
-
     container_name: emailenv-nginx
-
     restart: unless-stopped
 
     depends_on:
@@ -36,7 +29,6 @@ services:
 
     networks:
       - emailenv-network
-
 
 networks:
   emailenv-network:
